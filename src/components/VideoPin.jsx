@@ -46,7 +46,7 @@ function VideoPin({ data }) {
       maxWidth={"300px"}
       bg="gray.200"
     >
-      <Link to={""}>
+      <Link to={`/videoDetail/${data.id}`}>
         <video
           src={data.videoUrl}
           muted
@@ -72,7 +72,7 @@ function VideoPin({ data }) {
             {data.title}
           </Text>
 
-          <Link to={`/UserDetail/${data.userId}`}>
+          <Link to={`/UserDetail/${userId}`}>
             <Image
               src={userInfo?.photoURL ? userInfo.photoURL : avatar}
               rounded="full"
@@ -81,6 +81,8 @@ function VideoPin({ data }) {
               border="2px"
               borderColor={bg}
               mt={-10}
+              minHeight={"50px"}
+              minWidth={"50px"}
             />
           </Link>
         </Flex>

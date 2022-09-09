@@ -7,7 +7,14 @@ function Category({ data }) {
   return (
     <Flex cursor={"pointer"} my="5">
       <Link to={`/category/${data.name}`}>
-        <Tooltip hasArrow placement="right" closeDelay={300} arrowSize label={data.name} bg={bg}>
+      <Tooltip
+          hasArrow
+          label={data.name}
+          placement="right"
+          closeDelay={300}
+          arrowSize={5}
+          bg={bg}
+        >
           <Box>{data.iconSrc}</Box>
         </Tooltip>
       </Link>

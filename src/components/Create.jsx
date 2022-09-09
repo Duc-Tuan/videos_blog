@@ -105,7 +105,6 @@ function Create() {
 
   const getDescriptionValue = () => {
     if (editorRef.current) {
-      console.log(editorRef.current.getContent());
       setDescription(editorRef.current.getContent());
     }
   };
@@ -228,7 +227,7 @@ function Create() {
                     px={4}
                     onClick={() => setCategory(data.name)}
                   >
-                    {data.iconSrc}{" "}
+                    {data.iconSrc}
                     <Text fontSize={18} ml={4}>
                       {data.name}
                     </Text>

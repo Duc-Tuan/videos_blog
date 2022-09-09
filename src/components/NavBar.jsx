@@ -13,7 +13,6 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import {
   IoAdd,
-  IoLogIn,
   IoLogOut,
   IoMoon,
   IoSearch,
@@ -25,6 +24,8 @@ import logo_dark from "../images/logo_dark.png";
 import Image from "./Image";
 
 function NavBar({ user }) {
+  const navigate = useNavigate();
+
   const { colorMode, toggleColorMode } = useColorMode();
   const bg = useColorModeValue("gray.600", "gray.300");
   return (
@@ -95,10 +96,13 @@ function NavBar({ user }) {
             <Image src={user?.photoURL} width={"40px"} height={"40px"} />
           </MenuButton>
           <MenuList shadow={"lg"}>
-            <Link to={""}>
+            <Link to={`/UserDetail/${user?.uid}`}>
               <MenuItem>My Account</MenuItem>
             </Link>
-            <MenuItem flexDirection={"row"} alignItems="center" gap={4}>
+            <MenuItem flexDirection={"row"} alignItems="center" gap={4} onClick={() => {
+              localStorage.clear();
+              navigate("/login", { replace: true });
+            }}>
               logout <IoLogOut fontSize={20} />
             </MenuItem>
           </MenuList>
